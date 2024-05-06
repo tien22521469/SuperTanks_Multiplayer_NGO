@@ -29,9 +29,9 @@ Luật chơi
 ## Phát triển
 ### Chủ đề
 - Thiết kế lại cảnh game
-- Thêm nhiều người chơi 
-- Thiết kế lại luật chơi 
+- Thêm nhiều người chơi
 - Thêm tính năng chat 
+- Thiết kế lại luật chơi 
 
 ### Chuẩn bị
 - MSP Unity StarterPack https://onedrive.live.com/?authkey=%21AFgnoQPxEyxmN34&cid=73E165CE52BCC8D8&id=73E165CE52BCC8D8%21983&parId=root&o=OneUp
