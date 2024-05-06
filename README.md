@@ -1,6 +1,6 @@
-
-# Lập trình mạng cùng với Unity 
 ***
+# Lập trình mạng cùng với Unity 
+
 ## Phạm vi 
 Dự án được thực hiện trong phạm vi môn học Lập trình mạng căn bản NT106.O22 - UIT K17
 
@@ -25,7 +25,7 @@ Luật chơi
 - Chỉ chơi được một máy duy nhất và trên máy đó.
 - Chỉ có 2 đối tượng chơi với nhau.
 
-===
+***
 ## Phát triển
 ### Chủ đề
 - Thiết kế lại cảnh game
