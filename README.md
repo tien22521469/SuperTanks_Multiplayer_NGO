@@ -25,7 +25,7 @@ Luật chơi
 - Chỉ chơi được một máy duy nhất và trên máy đó.
 - Chỉ có 2 đối tượng chơi với nhau.
 
-
+===
 ## Phát triển
 ### Chủ đề
 - Thiết kế lại cảnh game
@@ -40,6 +40,7 @@ Luật chơi
 &copy; https://learn.microsoft.com/vi-vn/archive/blogs/uk_faculty_connection/making-games-with-c-and-unity-beginners-tutorial
 
 - Tải thư viện Netcode for Game Object : com.unity.netcode.gameobjects
+
 &copy; https://docs-multiplayer.unity3d.com/netcode/current/installation/
 
 - Sử dụng ParrelSync để có thể tạo một bản sau tương tự project gốc để có thể tương tác với nhau (bản sau sẽ tự lưu giống bản gốc sau mỗi lần Save) : 
