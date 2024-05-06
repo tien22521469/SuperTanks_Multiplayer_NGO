@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 33568299392903964}
   - component: {fileID: 23937149325039906}
   - component: {fileID: 2659160514227093346}
-  - component: {fileID: 513713575518424968}
+  - component: {fileID: 871592533608311616}
   - component: {fileID: -6672028192117862832}
   - component: {fileID: -4920177588848324589}
+  - component: {fileID: -9132794919194878284}
+  - component: {fileID: 511774788962180030}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -115,7 +117,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &513713575518424968
+--- !u!114 &871592533608311616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,12 +126,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024207391899796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc640d59af93e924b923373f9415dcf0, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 1812437397935202, guid: 16f0e9e7baafb8044921abdaa8035eb1, type: 3}
-  explosionRadius: 5
-  explosionForce: 1000
+  GlobalObjectIdHash: 2534604757
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!82 &-6672028192117862832
 AudioSource:
   m_ObjectHideFlags: 0
@@ -247,3 +255,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8857182, y: 1.1103616, z: 2.5178065}
   m_Center: {x: -0.012615129, y: 0.07948026, z: -0.21243596}
+--- !u!114 &-9132794919194878284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024207391899796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
+--- !u!114 &511774788962180030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024207391899796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc640d59af93e924b923373f9415dcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  explosionPrefab: {fileID: 1812437397935202, guid: 16f0e9e7baafb8044921abdaa8035eb1, type: 3}
+  explosionRadius: 5
+  explosionForce: 1000

@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 23860399306032528}
   - component: {fileID: 788723901838793042}
   - component: {fileID: -6804858359007084803}
+  - component: {fileID: 2167693186654950094}
   - component: {fileID: -3981065779683763213}
   - component: {fileID: 7636444803856593856}
+  - component: {fileID: 5190808977120764827}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -137,6 +139,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.674028, y: 2.2346387, z: 3.8410091}
   m_Center: {x: 0, y: 1.1046169, z: 0.9205045}
+--- !u!114 &2167693186654950094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691203124746624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3866371157
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &-3981065779683763213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  missilePrefab: {fileID: 1024207391899796, guid: 9aa026f392e9c9b49b561b3cddf7cd83, type: 3}
-  fireTransform: {fileID: 0}
   fireForce: 2000
+  missilePrefab: {fileID: 1024207391899796, guid: 9aa026f392e9c9b49b561b3cddf7cd83, type: 3}
+  fireTransform: {fileID: 2935441333830916712}
+  spawnedMissile: []
 --- !u!114 &7636444803856593856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +189,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba6468941af11348a6c820034065d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameInput: {fileID: 0}
+--- !u!114 &5190808977120764827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691203124746624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &5604305928371242745
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 5604305928371242745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
