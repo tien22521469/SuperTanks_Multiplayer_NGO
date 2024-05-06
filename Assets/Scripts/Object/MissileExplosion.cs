@@ -15,15 +15,13 @@ public class MissileExplosion : NetworkBehaviour
     public float explosionRadius = 5;
 
     public float explosionForce = 1000;
-   
-    
 
+
+    public Rigidbody TargetBody;
     private void OnCollisionEnter(Collision collision)
     {
         if(!IsOwner) return;
         InstantiateCollisionEnterServerRpc();
-        //Sẽ không thực hiện khi đối tượng nổ của đối tượng tên lửa không được phá huỷ loại bỏ ra khỏi cảnh
-        //Nếu đối tượng nổ được loại ra khỏi cảnh thì sẽ loại bỏ được đối tượng cảnh tên lửa trong cảnh 
         parent.DestroyMissileServerRpc();   
     }
     //thực thi khi là máy chủ
@@ -32,9 +30,21 @@ public class MissileExplosion : NetworkBehaviour
     {
         GameObject hitImpact=Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         NetworkObject networkObject= hitImpact.GetComponent<NetworkObject>();
-        networkObject.Spawn();
-        hitImpact.transform.localEulerAngles =new Vector3(0f,0f,-90f);
+        networkObject.GetComponent<NetworkObject>().Spawn();
 
+        //Tác dụng 1 lực nổ cho các vật thể ở gần
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionForce);
+        foreach(Collider collider in colliders)
+        {
+            TargetBody = collider.GetComponent<Rigidbody>();
+            if (TargetBody != null)
+            {
+                continue;
+            }
+            TargetBody.AddExplosionForce(explosionForce,transform.position,explosionRadius);
+        }
+
+        Debug.Log("Explosion");
         AutoDetroy autoDetroy = networkObject.GetComponent<AutoDetroy>();
     }
 }

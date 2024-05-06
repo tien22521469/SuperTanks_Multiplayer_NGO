@@ -7,6 +7,9 @@ public class SuperTanksGameManager : MonoBehaviour
     public static SuperTanksGameManager Instance { get; private set; }
 
     public event EventHandler OnStageChanged;
+    public event EventHandler OnGamePaused;
+    public event EventHandler OnGameUnpaused;
+
     private enum State
     {
         WaitingForStart,
@@ -19,6 +22,16 @@ public class SuperTanksGameManager : MonoBehaviour
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 100f;
+    private bool isGamePaused;
+    private void Start()
+    {
+        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+    }
+
+    private void GameInput_OnPauseAction(object sender, EventArgs e)
+    {
+        TogglePauseGame();
+    }
 
     private void Awake()
     {
@@ -85,5 +98,20 @@ public class SuperTanksGameManager : MonoBehaviour
     public bool isGameOver()
     {
         return state == State.GameOver;
+    }
+
+    public void TogglePauseGame()
+    {
+        isGamePaused = !isGamePaused;
+        if(!isGamePaused)
+        {
+            Time.timeScale = 0f;
+            OnGamePaused?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInput : NetworkBehaviour
 {
@@ -10,13 +12,28 @@ public class GameInput : NetworkBehaviour
     private PlayerInputAction playerInputActions;
     private Vector2 movementInput;
     private Vector2 rotationInput;
-
+    public event EventHandler OnPauseAction;
     private void Awake()
     {
         Instance = this;
         playerInputActions = new PlayerInputAction();
         playerInputActions.Player.Enable();
+
+        playerInputActions.Player.Pause.performed += Pause_performed;
     }
+
+    private void OnDestroy()
+    {
+
+        playerInputActions.Player.Pause.performed -= Pause_performed;
+        playerInputActions.Dispose();
+    }
+    private void Pause_performed(InputAction.CallbackContext context)
+    {
+        OnPauseAction?.Invoke(this, EventArgs.Empty);
+    }
+
+
 
     // Returns input values of 0, 1 or -1 based on whether Player tries to move forward or back
     public float GetMovementInput()

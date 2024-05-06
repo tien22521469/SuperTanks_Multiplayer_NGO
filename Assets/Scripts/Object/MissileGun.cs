@@ -35,12 +35,9 @@ public class MissileGun : NetworkBehaviour
   
     }
     //Tạo Rpc để tạo tên lửa
-    [ServerRpc(RequireOwnership = false)]
-    public void CreateMissileServerRpc(ServerRpcParams serverRpcParams = default)
+    [ServerRpc]
+    public void CreateMissileServerRpc()
     {
-
-        var clientid = serverRpcParams.Receive.SenderClientId;
-
 
 
         // lấy tên lửa từ prefab và vị trí bắn
