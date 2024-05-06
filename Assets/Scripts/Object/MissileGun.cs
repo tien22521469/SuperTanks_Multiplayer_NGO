@@ -18,6 +18,7 @@ public class MissileGun : NetworkBehaviour
     [SerializeField] public List<GameObject> spawnedMissile = new List<GameObject>();
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -26,20 +27,29 @@ public class MissileGun : NetworkBehaviour
 
         if (Input.GetButtonDown("Fire"+player))
         { 
+            Debug.Log("Fire");
             CreateMissileServerRpc();
+            //Thông báo ra console
+            
         }    
   
     }
     //Tạo Rpc để tạo tên lửa
-    [ServerRpc]
-    public void CreateMissileServerRpc()
+    [ServerRpc(RequireOwnership = false)]
+    public void CreateMissileServerRpc(ServerRpcParams serverRpcParams = default)
     {
+
+        var clientid = serverRpcParams.Receive.SenderClientId;
+
+
+
         // lấy tên lửa từ prefab và vị trí bắn
         GameObject missile = Instantiate(missilePrefab, fireTransform.position, transform.rotation);
         
         spawnedMissile.Add(missile);
 
         missile.GetComponent<MissileExplosion>().parent = this;
+
         NetworkObject networkObject = missile.GetComponent<NetworkObject>();   
 
         networkObject.GetComponent<NetworkObject>().Spawn();
@@ -49,6 +59,7 @@ public class MissileGun : NetworkBehaviour
         missileRigidbody.AddForce(fireTransform.forward * fireForce);
 
     }
+
     //Tạo Rpc để hủy tên lửa
     [ServerRpc(RequireOwnership = false)]
     public void DestroyMissileServerRpc()
@@ -58,5 +69,7 @@ public class MissileGun : NetworkBehaviour
         destroyNetworkObject.Despawn();
         spawnedMissile.Remove(toDestroy);
         Destroy(toDestroy);
+        //in đối tượng đó ra console
+
     }
 }
