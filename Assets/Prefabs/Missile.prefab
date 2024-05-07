@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6672028192117862832}
   - component: {fileID: -4920177588848324589}
   - component: {fileID: -9132794919194878284}
-  - component: {fileID: 511774788962180030}
+  - component: {fileID: -4230059502318551732}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2534604757
+  GlobalObjectIdHash: 1536693319
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -286,7 +286,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &511774788962180030
+--- !u!114 &-4230059502318551732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,3 +302,4 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1812437397935202, guid: 16f0e9e7baafb8044921abdaa8035eb1, type: 3}
   explosionRadius: 5
   explosionForce: 1000
+  TargetBody: {fileID: 0}

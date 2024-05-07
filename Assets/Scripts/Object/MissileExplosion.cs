@@ -10,7 +10,7 @@ public class MissileExplosion : NetworkBehaviour
 {
     public MissileGun parent;
 
-    public GameObject explosionPrefab;
+    [SerializeField] public GameObject explosionPrefab;
 
     public float explosionRadius = 5;
 

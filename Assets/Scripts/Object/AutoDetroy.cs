@@ -11,7 +11,6 @@ public class AutoDetroy : NetworkBehaviour
     {
         DestroyAfterDelayServerRpc();
     }
-
     [ServerRpc(RequireOwnership = false)]
     private void DestroyAfterDelayServerRpc()
     {
