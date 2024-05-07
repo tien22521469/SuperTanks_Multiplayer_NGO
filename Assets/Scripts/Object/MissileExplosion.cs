@@ -31,7 +31,7 @@ public class MissileExplosion : NetworkBehaviour
         GameObject hitImpact=Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         NetworkObject networkObject= hitImpact.GetComponent<NetworkObject>();
         networkObject.GetComponent<NetworkObject>().Spawn();
-
+        /*
         //Tác dụng 1 lực nổ cho các vật thể ở gần
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionForce);
         foreach(Collider collider in colliders)
@@ -43,7 +43,7 @@ public class MissileExplosion : NetworkBehaviour
             }
             TargetBody.AddExplosionForce(explosionForce,transform.position,explosionRadius);
         }
-
+        */
         Debug.Log("Explosion");
         AutoDetroy autoDetroy = networkObject.GetComponent<AutoDetroy>();
     }

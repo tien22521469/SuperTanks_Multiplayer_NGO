@@ -10,17 +10,22 @@ public class Player : NetworkBehaviour
     private float speed = 10f;
 
     // How quickly player rotates (degrees per second)
-
     private float rotationSpeed = 180f;
 
+    private float positionRange = 13f;
     private Rigidbody body;
     // Use this for initialization
+
     void Start()
     {
         // Retrieve reference to this GameObject's Rigidbody component
         body = GetComponent<Rigidbody>();
     }
-
+    public override void OnNetworkSpawn()
+    {
+        transform.position = new Vector3(Random.Range(positionRange, -positionRange), 0f, Random.Range(positionRange, -positionRange));
+        transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+    }
     // Update is called once per frame
     void Update()
     {

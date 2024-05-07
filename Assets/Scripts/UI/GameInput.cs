@@ -13,14 +13,22 @@ public class GameInput : NetworkBehaviour
     private Vector2 movementInput;
     private Vector2 rotationInput;
     public event EventHandler OnPauseAction;
+    public event EventHandler HaveMissileAction;
+    public event EventHandler MoveAction;
+    public event EventHandler RotationAction;
     private void Awake()
     {
         Instance = this;
         playerInputActions = new PlayerInputAction();
         playerInputActions.Player.Enable();
-
+        //
         playerInputActions.Player.Pause.performed += Pause_performed;
+        //
+        playerInputActions.Player.HaveMissile.performed += HaveMissile_performed;
+        playerInputActions.Player.Move.performed += Move_performed;
+        playerInputActions.Player.Rotate.performed += Rotate_performed;
     }
+
 
     private void OnDestroy()
     {
@@ -32,7 +40,21 @@ public class GameInput : NetworkBehaviour
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
-
+    
+    private void HaveMissile_performed(InputAction.CallbackContext context)
+    {
+        HaveMissileAction?.Invoke(this, EventArgs.Empty);
+    }
+    
+    private void Move_performed(InputAction.CallbackContext context)
+    {
+        MoveAction?.Invoke(this, EventArgs.Empty);
+    }
+    
+    private void Rotate_performed(InputAction.CallbackContext context)
+    {
+        RotationAction?.Invoke(this, EventArgs.Empty);
+    }
 
 
     // Returns input values of 0, 1 or -1 based on whether Player tries to move forward or back

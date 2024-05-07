@@ -18,24 +18,31 @@ public class MissileGun : NetworkBehaviour
     [SerializeField] public List<GameObject> spawnedMissile = new List<GameObject>();
 
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (!IsOwner) return;
         if (!SuperTanksGameManager.Instance.IsGamePlaying()) return;
 
+        GameInput.Instance.HaveMissileAction += (sender, e) => FireMissile();
+    }
+
+    // Update is called once per frame
+    void FireMissile()
+    {
+        if (!IsOwner) return;
+        /*
         if (Input.GetButtonDown("Fire"+player))
         { 
             Debug.Log("Fire");
             CreateMissileServerRpc();
             //Thông báo ra console
             
-        }    
+        }    */
+        CreateMissileServerRpc();
+
   
     }
     //Tạo Rpc để tạo tên lửa
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void CreateMissileServerRpc()
     {
 
@@ -50,12 +57,13 @@ public class MissileGun : NetworkBehaviour
         NetworkObject networkObject = missile.GetComponent<NetworkObject>();   
 
         networkObject.GetComponent<NetworkObject>().Spawn();
-
+        //tạo lực cho tên lửa
         Rigidbody missileRigidbody = networkObject.GetComponent<Rigidbody>();
-
+        
         missileRigidbody.AddForce(fireTransform.forward * fireForce);
 
     }
+    
 
     //Tạo Rpc để hủy tên lửa
     [ServerRpc(RequireOwnership = false)]
