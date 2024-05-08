@@ -11,6 +11,7 @@ public class SuperTanksGameManager : NetworkBehaviour
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnpaused;
     public event EventHandler OnLocalPlayerReadyChanged;
+    public event EventHandler OnLoadTutorial;
 
     private enum State
     {
@@ -40,8 +41,6 @@ public class SuperTanksGameManager : NetworkBehaviour
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         GameInput.Instance.HaveMissileAction += GameInput_HaveMissileAction;
-        GameInput.Instance.MoveAction += GameInput_MoveAction;
-        GameInput.Instance.RotationAction += GameInput_RotationAction;
     }
 
     private void GameInput_OnPauseAction(object sender, EventArgs e)
@@ -58,33 +57,10 @@ public class SuperTanksGameManager : NetworkBehaviour
             SetPlayerReadyServerRpc();
 
             OnLocalPlayerReadyChanged?.Invoke(this, EventArgs.Empty);
+
+            OnLoadTutorial?.Invoke(this, EventArgs.Empty);
         }
     }
-    
-    private void GameInput_MoveAction(object sender, EventArgs e)
-    {
-        if (state.Value == State.WaitingToStart)
-        {
-            isLocalPlayerReady = true;
-
-            SetPlayerReadyServerRpc();
-
-            OnLocalPlayerReadyChanged?.Invoke(this, EventArgs.Empty);
-        }
-    }
-    
-    private void GameInput_RotationAction(object sender, EventArgs e)
-    {
-        if (state.Value == State.WaitingToStart)
-        {
-            isLocalPlayerReady = true;
-
-            SetPlayerReadyServerRpc();
-
-            OnLocalPlayerReadyChanged?.Invoke(this, EventArgs.Empty);
-        }
-    }
-
 
     [ServerRpc(RequireOwnership = false)]
     private void SetPlayerReadyServerRpc(ServerRpcParams serverRpcParams = default)
@@ -96,7 +72,6 @@ public class SuperTanksGameManager : NetworkBehaviour
         {
             if (!playerReadyDictionary.ContainsKey(clientId) || !playerReadyDictionary[clientId])
             {
-                //N?u nh? ng??i ch?i không s?ng sàng ho?c không t?n t?i trong playerReadyDictionary
                 allClientsReady = false;
                 break;
             }

@@ -16,17 +16,15 @@ public class GameInput : NetworkBehaviour
     public event EventHandler HaveMissileAction;
     public event EventHandler MoveAction;
     public event EventHandler RotationAction;
+    public event EventHandler OnBindingRebind;
     private void Awake()
     {
         Instance = this;
         playerInputActions = new PlayerInputAction();
         playerInputActions.Player.Enable();
-        //
         playerInputActions.Player.Pause.performed += Pause_performed;
-        //
         playerInputActions.Player.HaveMissile.performed += HaveMissile_performed;
-        playerInputActions.Player.Move.performed += Move_performed;
-        playerInputActions.Player.Rotate.performed += Rotate_performed;
+
     }
 
 
@@ -46,15 +44,11 @@ public class GameInput : NetworkBehaviour
         HaveMissileAction?.Invoke(this, EventArgs.Empty);
     }
     
-    private void Move_performed(InputAction.CallbackContext context)
+    private void Rebinding(InputAction.CallbackContext context)
     {
-        MoveAction?.Invoke(this, EventArgs.Empty);
+        OnBindingRebind?.Invoke(this, EventArgs.Empty);
     }
     
-    private void Rotate_performed(InputAction.CallbackContext context)
-    {
-        RotationAction?.Invoke(this, EventArgs.Empty);
-    }
 
 
     // Returns input values of 0, 1 or -1 based on whether Player tries to move forward or back

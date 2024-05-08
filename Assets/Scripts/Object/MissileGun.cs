@@ -18,26 +18,25 @@ public class MissileGun : NetworkBehaviour
     [SerializeField] public List<GameObject> spawnedMissile = new List<GameObject>();
 
 
-    private void Start()
+    private void Update()
     {
         if (!SuperTanksGameManager.Instance.IsGamePlaying()) return;
 
-        GameInput.Instance.HaveMissileAction += (sender, e) => FireMissile();
+        FireMissile();
     }
 
     // Update is called once per frame
     void FireMissile()
     {
         if (!IsOwner) return;
-        /*
+        
         if (Input.GetButtonDown("Fire"+player))
         { 
             Debug.Log("Fire");
             CreateMissileServerRpc();
             //Thông báo ra console
             
-        }    */
-        CreateMissileServerRpc();
+        }    
 
   
     }

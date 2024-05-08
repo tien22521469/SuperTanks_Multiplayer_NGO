@@ -11,10 +11,19 @@ public class WaitingForOtherPlayerUI : MonoBehaviour
         SuperTanksGameManager.Instance.OnStageChanged += SuperTanksGameManager_OnStageChanged;
         Hide();
     }
+    private void Update()
+    {
+        if(SuperTanksGameManager.Instance.isCountdownToStartActive())
+        {
+            Debug.Log("Waitting1");
+            Hide();
+        }
+    }
     private void SuperTanksGameManager_OnStageChanged(object sender, EventArgs e)
     {
         if(SuperTanksGameManager.Instance.isCountdownToStartActive())
         {
+            Debug.Log("Waitting2");
             Hide();
         }
         

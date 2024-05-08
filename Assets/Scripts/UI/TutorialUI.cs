@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class TutorialUI : MonoBehaviour
 {
-    //Xu?t hi?n khi game ch?a b?t ??u
-
+ 
     private void Start()
     {
         SuperTanksGameManager.Instance.OnLocalPlayerReadyChanged += SuperTanksGameManager_OnLocalPlayerReadyChanged;
+        Debug.Log("TutorialUI Start");
         Show();
     }
+
+
     private void SuperTanksGameManager_OnLocalPlayerReadyChanged(object sender, System.EventArgs e)
     {
         if (SuperTanksGameManager.Instance.IsLocalPlayerReady())
         {
+            Debug.Log("TutorialUI");
             Hide();
         }
     }
