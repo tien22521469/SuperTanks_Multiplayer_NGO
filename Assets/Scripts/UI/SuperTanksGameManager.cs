@@ -40,7 +40,7 @@ public class SuperTanksGameManager : NetworkBehaviour
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
-        GameInput.Instance.HaveMissileAction += GameInput_HaveMissileAction;
+        GameInput.Instance.SpaceAction += GameInput_SpaceAction;
     }
 
     private void GameInput_OnPauseAction(object sender, EventArgs e)
@@ -48,7 +48,7 @@ public class SuperTanksGameManager : NetworkBehaviour
         TogglePauseGame();
     }
     
-    private void GameInput_HaveMissileAction(object sender, EventArgs e)
+    private void GameInput_SpaceAction(object sender, EventArgs e)
     {
         if (state.Value == State.WaitingToStart)
         {

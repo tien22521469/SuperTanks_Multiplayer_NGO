@@ -16,14 +16,14 @@ public class GameInput : NetworkBehaviour
     public event EventHandler HaveMissileAction;
     public event EventHandler MoveAction;
     public event EventHandler RotationAction;
-    public event EventHandler OnBindingRebind;
+    public event EventHandler SpaceAction;
     private void Awake()
     {
         Instance = this;
         playerInputActions = new PlayerInputAction();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pause.performed += Pause_performed;
-        playerInputActions.Player.HaveMissile.performed += HaveMissile_performed;
+        playerInputActions.Player.Space.performed += Space_performed;
 
     }
 
@@ -39,15 +39,11 @@ public class GameInput : NetworkBehaviour
         OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
     
-    private void HaveMissile_performed(InputAction.CallbackContext context)
+    private void Space_performed(InputAction.CallbackContext context)
     {
-        HaveMissileAction?.Invoke(this, EventArgs.Empty);
+        SpaceAction?.Invoke(this, EventArgs.Empty);
     }
     
-    private void Rebinding(InputAction.CallbackContext context)
-    {
-        OnBindingRebind?.Invoke(this, EventArgs.Empty);
-    }
     
 
 

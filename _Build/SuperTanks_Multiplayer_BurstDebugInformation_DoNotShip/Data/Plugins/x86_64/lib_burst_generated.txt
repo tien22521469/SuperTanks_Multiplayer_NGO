@@ -25,10 +25,12 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.Netcode.Runtime;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.RNSM;
+--assembly-defines=unity-websocket-sharp;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities;
 --assembly-defines=Unity.Services.Core.Analytics;
+--assembly-defines=Unity.Services.Wire.Internal;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
 --assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
@@ -49,6 +51,7 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.Multiplayer.Tools.Initialization;
 --assembly-defines=Unity.Multiplayer.Tools.Adapters;
 --assembly-defines=Unity.Services.Authentication;
+--assembly-defines=Unity.Services.Lobbies;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTypes;
 --assembly-defines=Unity.Services.Core.Registration;
@@ -60,6 +63,7 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Newtonsoft.Json;
+--assembly-defines=websocket-sharp;
 --assembly-defines=System.Runtime;
 --assembly-defines=netstandard;
 --assembly-defines=Mono.Security;
@@ -197,10 +201,12 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.Netcode.Runtime;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.RNSM;
+--assembly-defines=unity-websocket-sharp;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities;
 --assembly-defines=Unity.Services.Core.Analytics;
+--assembly-defines=Unity.Services.Wire.Internal;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
 --assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
@@ -221,6 +227,7 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.Multiplayer.Tools.Initialization;
 --assembly-defines=Unity.Multiplayer.Tools.Adapters;
 --assembly-defines=Unity.Services.Authentication;
+--assembly-defines=Unity.Services.Lobbies;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTypes;
 --assembly-defines=Unity.Services.Core.Registration;
@@ -232,6 +239,7 @@ Library: C:\Users\Huu Tai\Desktop\SuperTanks_Multiplayer_NGO\Temp\BurstOutput\Da
 --assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Newtonsoft.Json;
+--assembly-defines=websocket-sharp;
 --assembly-defines=System.Runtime;
 --assembly-defines=netstandard;
 --assembly-defines=Mono.Security;
