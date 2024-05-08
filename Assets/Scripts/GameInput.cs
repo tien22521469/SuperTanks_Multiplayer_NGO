@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameInput : MonoBehaviour
 {
+    public EventHandle HaveMissileAction;
 
     public static GameInput Instance { get; private set; }
     private PlayerInputAction playerInputActions;

@@ -27,17 +27,15 @@ public class SuperTanksGameManager : MonoBehaviour
         state = State.WaitingForStart;
     }
 
+    private void Start()
+    {
+        GameInput.Instance.
+    }
     private void Update()
     {
         switch(state)
         {
             case State.WaitingForStart:
-                wattingToStartTimer -= Time.deltaTime;
-                if (wattingToStartTimer<0f)
-                {
-                    state = State.CountdownToStart;
-                    OnStageChanged?.Invoke(this, EventArgs.Empty);
-                }
                 break;
             
             case State.CountdownToStart:
